@@ -1,0 +1,109 @@
+<!--[main]-->
+<table width="100%">
+    <tr>
+        <td>
+            <table class="customform">
+                <thead>
+                <tr>
+                    <td class="sectiontitle">Universidade Potiguar (UNP) - Arquitetura de Software</td>
+                </tr>
+                </thead>
+                <tbody class="formdata">
+                <tr>
+                    <td style="padding: 20px">
+                        Integrantes do projeto: Matheus Cadó(201517149), Geanderson Helder Martins dos Santos (201515833), Matheus Avelino Giffoni de Souza (201506352).<br><br>
+                        1) Trabalho realizado com o Adianti Framework e com o Adianti Studio;<br>
+                        2) Algumas funções foram retiradas do AdiantiTutor;<br>
+                        3) Template utilizado: Template nº 1 do AdiantiStudio;<br>
+                        4) Banco de dados utilizado MYSQL.<br>
+                        <br>
+                        Adianti Framework para PHP é uma arquitetura open-source baseada em padrões de projeto, voltada
+                        para a criação ágil de aplicações de negócio em PHP. Busca reduzir os custos de desenvolvimento
+                        por oferecer componentes de alto nível para criação de formulários, datagrids, relatórios e
+                        outros.<br>
+                        <br>
+                        A idéia básica do modelo de 4 camadas, é retirar a apresentação do cliente e centralizá-las em um determinado ponto, o qual na maioria dos casos é um servidor Web. 
+                        Com isso o próprio Cliente deixa de existir como um programa que precisa ser instalado em cada computador da rede.
+                        Para acessar a aplicação, o cliente acessa o endereço da aplicação, utilizando o seu navegador. Todo o acesso do cliente ao Banco de dados, é feito de acordo com as regras contidas no Servidor de aplicações. O cliente não tem acesso direto ao Banco de dados, sem antes passar pelo servidor de aplicações.
+                        Com isso as quatro camadas são as seguintes:<br><br>
+                        	- Cliente: Neste caso o Cliente é o Navegador utilizado pelo usuário, quer seja o Internet Explorer, quer seja o Netscape Navigator, ou outro Navegador qualquer.<br><br>
+                        	- Apresentação: Passa para o Servidor Web. A interface pode ser composta de páginas HTML, ASP, ou qualquer outra tecnologia capaz de gerar conteúdo para o Navegador.<br> 
+                        Com isso alterações na interface da aplicação, são feitas diretamente no servidor Web, sendo que estas alterações estarão, automaticamente, disponíveis para todos os Clientes.<br> 
+                        Com isso não existe a necessidade de reinstalar a aplicação em todos os computadores da rede cada vez que uma alteração for feita na camada de apresentação. Fica muito mais fácil garantir que todos estão acessando a versão mais atualizada da aplicação.<br> 
+                        A única coisa que o cliente precisa ter instalado na sua máquina, é o Navegador. O acesso ao Banco de dados, é feito através do Servidor de aplicações.<br><br>
+                        	- Lógica: São as regras do negócio, as quais determinam de que maneira os dados serão utilizados. Esta camada está no Servidor de aplicações. <br>
+                        Desta maneira, quando uma regra do negócio for alterada, basta atualizá-la no Servidor de aplicações. Após a atualização, todos os usuários passarão a ter acesso a nova versão, sem que seja necessário reinstalar o programa em cada um dos computadores da rede.<br> 
+                        Vejam que ao centralizar as regras do negócio em um Servidor de aplicações, estamos facilitando a tarefa de manter a aplicação atualizada.<br><br>
+                        	- Dados: Nesta camada temos o servidor de Banco de dados, no qual reside toda a informação necessária para o funcionamento da aplicação.<br>
+                        Com o deslocamento da camada de apresentação para um Servidor Web, resolvemos o problema de termos que atualizar a aplicação, em centenas ou milhares de computadores, cada vez que a interface for alterada.<br> 
+                        Neste ponto a atualização das aplicações é uma tarefa mais gerenciável, muito diferente do que acontecia no caso do modelo em duas camadas.<br><br>
+                        <br>
+
+                        
+                    </td>
+                </tr>
+                </body>
+            </table>
+            <br>
+            <table class="customform">
+                <thead>
+                <tr>
+                    <td class="sectiontitle">Detalhes sobre o projeto.</td>
+                </tr>
+                </thead>
+                <tbody class="formdata">
+                <tr>
+                    <td style="padding: 20px">
+                        O projeto consiste em criar um CRUD de um sistema simples com tabelas em banco de dados:<br><br>
+                        Criamos um sistema de cadastro e listagem de filmes e revistas o mesmo possuindo duas tabelas
+                        independentes e uma tabela de conexão ou seja uma tabela para receber dados de um comentario que
+                        seria um long text para guardar esse comentario e exibi-lo em outra pagina.<br>
+                        <br>
+                        Abaixo os codigos usado para criação do banco de dados.<br><br>
+    <pre>CREATE TABLE `filme` (
+        `id` int(11) NOT NULL,
+        `titulo` text,
+        `diretor` text,
+        `id_suporte` int(11) DEFAULT NULL,
+        `id_genero` int(11) DEFAULT NULL,
+        `dt_lcto` date DEFAULT NULL,
+        `duracao` int(11) DEFAULT NULL,
+        PRIMARY KEY (`id`)
+    );</pre>
+                        <br>
+    <pre>CREATE TABLE `revistas` (
+        `id` int(11) NOT NULL,
+        `titulo` text,
+        `editora` text,
+        `id_genero` int(11) DEFAULT NULL,
+        `dt_lcto` date DEFAULT NULL,
+        `edicao` int(11) DEFAULT NULL,
+        PRIMARY KEY (`id`)
+    );</pre>
+                        <br>
+    <pre>CREATE TABLE `livro` (
+        `id` int(11) NOT NULL,
+        `titulo` text,
+        `editora` text,
+        `genero` text,
+        `isbn` int(11) NOT NULL,
+        `dt_lcto` date DEFAULT NULL,
+    PRIMARY KEY (`id`)
+    );</pre>
+                        <br>
+                        <br>
+
+                        OBS: Existe um arquivo sample.ini dentro do diretorio app/config que é um arquivo de
+                        configuração para conexão com o banco de dados caso queira executar o projeto na rede tem que
+                        fazer a configuração dentro do arquivo para o projeto funcionar corretamente.<br>
+    <pre>
+        host   = localhost
+        name   = crud
+        user   = root
+        pass   =
+        type   = mysql</pre>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <!--[/main]-->

@@ -1,0 +1,44 @@
+<menu>
+    <menuitem label='Menu'>
+        <menu>
+            <menuitem label='Apresentação'>
+                <action>WelcomeView</action>
+            </menuitem>
+            <menuitem label='Cadastro'>
+                <menu>
+                    <menuitem label='Cadastrar filmes'>
+                        <icon>app/images/ico_wellcome.png</icon>
+                        <action>FilmeForm</action>
+                    </menuitem>
+
+                    <menuitem label='Cadastrar revistas'>
+                        <icon>app/images/ico_wellcome.png</icon>
+                        <action>RevistaForm</action>
+                    </menuitem>
+
+                    <menuitem label='Cadastrar livros'>
+                        <icon>app/images/ico_wellcome.png</icon>
+                        <action>LivroForm</action>
+                    </menuitem>
+
+                </menu>
+            </menuitem>
+            <menuitem label='Listar'>
+                <menu>
+                    <menuitem label='Listar filmes'>
+                        <icon>app/images/ico_wellcome.png</icon>
+                        <action>FilmeList</action>
+                    </menuitem>
+                    <menuitem label='Listar revistas'>
+                        <icon>app/images/ico_wellcome.png</icon>
+                        <action>RevistaList</action>
+                    </menuitem>
+                    <menuitem label='Listar livros'>
+                        <icon>app/images/ico_wellcome.png</icon>
+                        <action>LivroList</action>
+                    </menuitem>
+                </menu>
+            </menuitem>
+        </menu>
+    </menuitem>
+</menu>
