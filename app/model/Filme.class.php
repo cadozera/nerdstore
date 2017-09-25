@@ -19,5 +19,5 @@ class filme extends TRecord
     }
 
 }
-
+// arquivo que faz a passagem dos atributos para o banco de dados.
 ?>

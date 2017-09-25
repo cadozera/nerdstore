@@ -7,11 +7,11 @@ class FilmeForm extends TPage
     public function __construct()
     {
         parent::__construct();
-        $this->form = new TQuickForm('form_filme');
+        $this->form = new TQuickForm('form_filme');    //criacao do formulario rapido
         $this->form->setFormTitle('Cadastro de filmes');
         $this->form->class = 'tform';
 
-        $id = new TEntry('id');
+        $id = new TEntry('id');    //criacao dos campos do formulario
         $titulo = new TEntry('titulo');
         $diretor = new TEntry('diretor');
         $id_suporte = new TCombo('id_suporte');
@@ -21,10 +21,10 @@ class FilmeForm extends TPage
 
         $id->setEditable(FALSE);
         $duracao->setMask('999');
-        $id_suporte->addItems(array(1 => 'DVD', 2 => 'Blu-Ray'));
+        $id_suporte->addItems(array(1 => 'DVD', 2 => 'Blu-Ray'));    //criacao do vetor com os dados para dentro da caixa combo
         $id_genero->addItems(array(1 => 'Ação', 2 => 'Animação', 3 => 'Aventura', 4 => 'Chanchada', 5 => 'Cinema catástrofe', 6 => 'Comédia', 7 => 'Comédia romântica', 8 => 'Comédia dramática', 9 => 'Comédia de ação', 10 => 'Cult', 11 => 'Dança', 12 => 'Documentários', 13 => 'Drama', 14 => 'Espionagem', 15 => 'Erótico', 16 => 'Fantasia', 17 => 'Faroeste (ou western)', 18 => 'Ficção científica', 19 => 'Franchise/Séries', 20 => 'Guerra', 21 => 'Machinima', 22 => 'Masala', 23 => 'Musical', 24 => 'Filme noir', 25 => 'Policial', 26 => 'Pornochanchada', 27 => 'Pornográfico', 28 => 'Romance', 29 => 'Suspense', 30 => 'Terror (ou horror)', 31 => 'Trash'));
 
-        $this->form->addQuickField('ID', $id, 100);
+        $this->form->addQuickField('ID', $id, 100);    //criacao da caixa de preenchimento dos campos
         $this->form->addQuickField('Titulo', $titulo, 200);
         $this->form->addQuickField('Diretor', $diretor, 200);
         $this->form->addQuickField('Suporte', $id_suporte, 100);
@@ -32,7 +32,7 @@ class FilmeForm extends TPage
         $this->form->addQuickField('Lançamento', $dt_lcto, 100);
         $this->form->addQuickField('Duração (min)', $duracao, 100);
 
-        $save = new TAction(array($this, 'onSave'));
+        $save = new TAction(array($this, 'onSave'));    //botoes para salvar e editar
         $this->form->addQuickAction('Salvar', $save, 'ico_save.png');
 
         $list = new TAction(array('FilmeList', 'onReload'));
@@ -41,19 +41,19 @@ class FilmeForm extends TPage
         parent::add($this->form);
     }
 
-    public function onSave()
+    public function onSave()    //metodos para salvar editar e excluir um registro
     {
 
         try {
-            TTransaction::open('sample');
+            TTransaction::open('sample');    //abertura de conexao com o banco
 
             $object = $this->form->getData('Filme');
 
-            $object->store();
+            $object->store();    //armazenamento do dado
 
             $this->form->setData($object);
 
-            new TMessage('info', 'Registro salvo com sucesso!');
+            new TMessage('info', 'Registro salvo com sucesso!');    //mensagem apos conclusao
 
             TTransaction::close();
         } catch (Exception $e) {

@@ -6,14 +6,13 @@ class FilmeList extends TPage{
     
         parent::__construct();
     
-        $this->datagrid = new TQuickGrid;
-        $this->datagrid->addQuickColumn('ID', 'id', 'center',50);
+        $this->datagrid = new TQuickGrid;    //criacao da tabela rapida    
+        $this->datagrid->addQuickColumn('ID', 'id', 'center',50);    //criacao das colunas e seus tamanhos
         $this->datagrid->addQuickColumn('Titulo', 'titulo', 'center',400);
         $this->datagrid->addQuickColumn('Diretor', 'diretor', 'center',400);
-        $this->datagrid->addQuickColumn('Genero', 'id_genero', 'center', 150);
         $this->datagrid->addQuickColumn('Duração (min)', 'duracao', 'center', 150);
         
-        $edit = new TDataGridAction(array('FilmeForm','onEdit'));
+        $edit = new TDataGridAction(array('FilmeForm','onEdit'));    // botoes nas colunas com funcao de editar e excluir
         $this->datagrid->addQuickAction('Editar',$edit,'id','ico_edit.png');
 
         $delete = new TDataGridAction(array('FilmeForm','delete'));
@@ -26,7 +25,7 @@ class FilmeList extends TPage{
     
     public function onReload($param = NULL){
         try{
-        TTransaction::open('sample');
+        TTransaction::open('sample');   //abertura de conexao com o banco
         
         $repository = new TRepository('Filme');
         $criteria = new TCriteria;

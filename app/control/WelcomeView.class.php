@@ -25,5 +25,5 @@ class WelcomeView extends TPage
         parent::add($this->html);
     }
 }
-
+//arquivo padrao dentro do framework que serve para mostrar a pagina inicial do projeto.
 ?>

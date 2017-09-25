@@ -9,15 +9,14 @@ class RevistaList extends TPage
 
         parent::__construct();
 
-        $this->datagrid = new TQuickGrid;
-        $this->datagrid->addQuickColumn('ID', 'id', 'center', 50);
+        $this->datagrid = new TQuickGrid;    //criacao da tabela rapida   
+        $this->datagrid->addQuickColumn('ID', 'id', 'center', 50);    //criacao das colunas e seus tamanhos
         $this->datagrid->addQuickColumn('Titulo', 'titulo', 'center', 250);
         $this->datagrid->addQuickColumn('Editora', 'editora', 'center', 200);
         $this->datagrid->addQuickColumn('Edição', 'edicao', 'center', 200);
         $this->datagrid->addQuickColumn('Data de lançamento', 'dt_lcto', 'center', 200);
-        $this->datagrid->addQuickColumn('Genero', 'id_genero', 'center', 150);
 
-        $edit = new TDataGridAction(array('RevistaForm', 'onEdit'));
+        $edit = new TDataGridAction(array('RevistaForm', 'onEdit'));    // botoes nas colunas com funcao de editar e excluir
         $this->datagrid->addQuickAction('Editar', $edit, 'id', 'ico_edit.png');
 
         $delete = new TDataGridAction(array('RevistaForm', 'delete'));
@@ -28,7 +27,7 @@ class RevistaList extends TPage
         parent::add($this->datagrid);
     }
 
-    public function onReload($param = NULL)
+    public function onReload($param = NULL)    //abertura de conexao com o banco
     {
         try {
             TTransaction::open('sample');
